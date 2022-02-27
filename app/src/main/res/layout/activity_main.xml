@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/flashcard_question"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:background="@drawable/card_background"
+        android:elevation="10dp"
+        android:textColor="#222222"
+        android:text="Best mobile OS?" />
+    <TextView
+        android:id="@+id/flashcard_answers"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:visibility="invisible"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:background="@drawable/card_background_answer"
+        android:elevation="10dp"
+        android:textColor="#444444"
+        android:text="Android"/>
+    <TextView
+        android:id="@+id/answer1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/flashcard_question"
+        android:textSize="35sp"
+        android:gravity="center"
+        android:elevation="5dp"
+        android:textColor="#999999"
+        android:background="#EEEEEE"
+        android:text="Android"/>
+    <TextView
+        android:id="@+id/answer2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/answer1"
+        android:textSize="35sp"
+        android:gravity="center"
+        android:elevation="5dp"
+        android:textColor="#999999"
+        android:background="#EEEEEE"
+        android:text="iOS"/>
+    <TextView
+        android:id="@+id/answer3"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/answer2"
+        android:textSize="35sp"
+        android:gravity="center"
+        android:elevation="5dp"
+        android:textColor="#999999"
+        android:background="#EEEEEE"
+        android:text="Windows Phone"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:id="@+id/toggle_vis"
+        android:src="@drawable/ic_baseline_flip_camera_android_24"/>
+
+</RelativeLayout>
