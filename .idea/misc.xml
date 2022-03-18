@@ -8,7 +8,10 @@
         <entry key="app/src/main/res/drawable/choice_background.xml" value="0.10989583333333333" />
         <entry key="app/src/main/res/drawable/correct_choice.xml" value="0.10989583333333333" />
         <entry key="app/src/main/res/drawable/ic_baseline_flip_camera_android_24.xml" value="0.10989583333333333" />
+        <entry key="app/src/main/res/drawable/ic_round_add_circle_outline_24.xml" value="0.15989583333333332" />
+        <entry key="app/src/main/res/layout/activity_act2.xml" value="0.1296875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main2.xml" value="0.15520833333333334" />
       </map>
     </option>
   </component>
