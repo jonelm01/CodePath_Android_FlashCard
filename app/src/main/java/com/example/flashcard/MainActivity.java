@@ -10,8 +10,14 @@ import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     boolean isShowing=true;
+
+    FlashcardDatabase flashcardDatabase;
+    List<Flashcard> allFlashcards;
+    int currentCardDisplayedIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +67,27 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.answer3).setBackgroundColor(getResources().getColor(R.color.red));
             }
         });
+
+        findViewById(R.id.nextButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(allFlashcards.size()==0)
+                    return;
+                currentCardDisplayedIndex++;
+                if (currentCardDisplayedIndex >= allFlashcards.size()){
+                    Snackbar.make(findViewById(R.id.flashcard_question),
+                            "End of cards, returning to start",
+                            Snackbar.LENGTH_SHORT)
+                            .show();
+                    currentCardDisplayedIndex=0;
+                }
+                allFlashcards = flashcardDatabase.getAllCards();
+                Flashcard flashcard = allFlashcards.get(currentCardDisplayedIndex);
+                ((TextView) findViewById(R.id.flashcard_question)).setText(flashcard.getQuestion());
+                ((TextView) findViewById(R.id.flashcard_answers)).setText(flashcard.getAnswer());
+            }
+
+        });
         findViewById(R.id.toggle_vis).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,6 +106,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        flashcardDatabase = new FlashcardDatabase(getApplicationContext());
+        allFlashcards = flashcardDatabase.getAllCards();
+        if(allFlashcards.size() >0 && allFlashcards != null ){
+            ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashcards.get(0).getQuestion());
+            ((TextView) findViewById(R.id.flashcard_answers)).setText(allFlashcards.get(0).getAnswer());
+        }
+
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -88,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
             String string2 = data.getExtras().getString("string2");
                 ((TextView)findViewById(R.id.flashcard_question)).setText(string1);
                 ((TextView)findViewById(R.id.flashcard_answers)).setText(string2);
+                flashcardDatabase.insertCard(new Flashcard(string1, string2));
+                allFlashcards = flashcardDatabase.getAllCards();
                 Snackbar.make(findViewById(R.id.flashcard_question),
                         "Tap question to see answer",
                         Snackbar.LENGTH_SHORT)
