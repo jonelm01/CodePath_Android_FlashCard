@@ -6,7 +6,7 @@
 Added feature for user to create their own flashcards, save them, and iterate through them. 
 
 ### App Walk-though
-<img src=http://g.recordit.co/qtJyMlCXYD.gif width=200><br>
+<img src=http://g.recordit.co/FXjwQCZZPI.gif width=200><br>
 
 ## Required
 - [X] User can create a card and still see their created card when the app is relaunched.
