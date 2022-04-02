@@ -24,6 +24,8 @@ public class MainActivity2 extends AppCompatActivity {
                 data.putExtra("string2", ((EditText) findViewById(R.id.editAnswerTextField)).getText().toString());
                 setResult(RESULT_OK, data);
                 finish();
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+
             }
         });
 
@@ -31,6 +33,8 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+
             }
         });
     }
